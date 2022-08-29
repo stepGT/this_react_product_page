@@ -1,13 +1,14 @@
 import './App.css';
+import Product from './components/Product';
+import { products } from './components/data/products';
 
 const App = () => {
   return (
     <div className="container mx-auto max-w-2xl pt-5">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt iusto animi deserunt
-      quibusdam veritatis repellat, placeat vitae error officiis magni exercitationem eaque eligendi
-      quae maiores iure. Eum quaerat voluptate ipsa.
+      <Product item={products[0]} />
+      <Product item={products[1]} />
     </div>
-  );
+  )
 };
 
 export default App;
