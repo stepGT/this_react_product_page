@@ -3,6 +3,8 @@ import './App.css';
 import { useProducts } from './hooks/products';
 import Loader from './components/Loader';
 import Error from './components/Error';
+import Modal from './components/Modal';
+import CreateProduct from './components/CreateProduct';
 
 const App = () => {
   const { data, loading, error } = useProducts();
@@ -11,6 +13,9 @@ const App = () => {
       {loading && <Loader />}
       {error && <Error error={error} />}
       {!error && data.map((el) => <Product key={el.id} item={el} />)}
+      <Modal title='Create new product'>
+        <CreateProduct />
+      </Modal>
     </div>
   );
 };
