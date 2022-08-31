@@ -15,7 +15,11 @@ const productData: IProduct = {
   },
 };
 
-const CreateProduct = () => {
+interface CreateProductProps {
+  onCreate: (product: IProduct) => void;
+}
+
+const CreateProduct = ({ onCreate }: CreateProductProps) => {
   const [value, setValue] = useState('');
   const [error, setError] = useState('');
   //
@@ -31,7 +35,7 @@ const CreateProduct = () => {
     await axios
       .post<IProduct>('https://fakestoreapi.com/products', productData)
       .then((res) => {
-        console.log(res);
+        onCreate(res.data);
       })
       .catch((err) => {
         console.log(err);

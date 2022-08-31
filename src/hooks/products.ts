@@ -6,6 +6,9 @@ export const useProducts = () => {
   const [data, setData] = useState<IProduct[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const addProduct = (product: IProduct) => {
+    setData(data => [...data, product]);
+  };
   //
   const fetchProduct = async () => {
     try {
@@ -23,5 +26,5 @@ export const useProducts = () => {
   useEffect(() => {
     fetchProduct();
   }, []);
-  return { data, loading, error };
+  return { data, loading, error, addProduct };
 };
